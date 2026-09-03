@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bh07vmstf5p4n"]
+
+[ext_resource type="Script" uid="uid://cgi5l5j7gl5ol" path="res://prefabs/script_inicio.gd" id="1_87ygc"]
+[ext_resource type="Texture2D" uid="uid://bc35vflnyvr61" path="res://sprite/Fases/Fases/Telas/telas/tela_inicio.png" id="1_ay2ov"]
+[ext_resource type="Texture2D" uid="uid://bqegq8nq0h4i7" path="res://sprite/Fases/Fases/Telas/botoes/play.png" id="2_3704g"]
+[ext_resource type="Texture2D" uid="uid://ct6wy5wn40hf4" path="res://sprite/Fases/Fases/Telas/botoes/options.png" id="3_87ygc"]
+[ext_resource type="Texture2D" uid="uid://bhlqsvnmsa0gl" path="res://sprite/Fases/Fases/Telas/botoes/credits.png" id="4_dbdim"]
+[ext_resource type="AudioStream" uid="uid://35aoe075xgqh" path="res://sons/tela_inicio.ogg" id="6_dbdim"]
+
+[node name="Node2D" type="Node2D" unique_id=64197023]
+script = ExtResource("1_87ygc")
+
+[node name="SpriteFundo" type="Sprite2D" parent="." unique_id=407235823]
+position = Vector2(549, 238)
+scale = Vector2(0.59150326, 0.63960284)
+texture = ExtResource("1_ay2ov")
+
+[node name="ButtonPlay" type="Button" parent="SpriteFundo" unique_id=1129468140]
+modulate = Color(1, 1, 1, 0)
+offset_left = -136.93922
+offset_top = 127.8137
+offset_right = 115.237656
+offset_bottom = 189.4777
+
+[node name="ButtonOpitions" type="Button" parent="SpriteFundo" unique_id=2118030525]
+modulate = Color(1, 1, 1, 0)
+offset_left = -158.91711
+offset_top = 207.94153
+offset_right = 137.46777
+offset_bottom = 254.39117
+
+[node name="ButtonCredits" type="Button" parent="SpriteFundo" unique_id=1826599482]
+modulate = Color(1, 1, 1, 0)
+offset_left = -201.18231
+offset_top = 268.91687
+offset_right = 185.15234
+offset_bottom = 325.31995
+
+[node name="SpritePlay" type="Sprite2D" parent="." unique_id=2051213157]
+position = Vector2(559, 344)
+scale = Vector2(0.35157537, 0.3061798)
+texture = ExtResource("2_3704g")
+
+[node name="SpriteOptions" type="Sprite2D" parent="." unique_id=1499334250]
+position = Vector2(568, 383)
+scale = Vector2(0.3805622, 0.33892617)
+texture = ExtResource("3_87ygc")
+
+[node name="SpriteCreditos" type="Sprite2D" parent="." unique_id=1458336532]
+position = Vector2(553, 427)
+scale = Vector2(0.42116055, 0.3367345)
+texture = ExtResource("4_dbdim")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=291019489]
+stream = ExtResource("6_dbdim")
+autoplay = true
+
+[connection signal="pressed" from="SpriteFundo/ButtonPlay" to="." method="iniciar_jogo"]

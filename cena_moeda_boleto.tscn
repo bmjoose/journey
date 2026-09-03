@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://kjq4eot5ot6p"]
+
+[ext_resource type="Script" uid="uid://bqkg764rees75" path="res://script_moeda.gd" id="1_ltv87"]
+[ext_resource type="Texture2D" uid="uid://c3jeatg0upflc" path="res://sprite/Inimigos/Inimigo Boleto/moeda/moeda ataque.png" id="1_o7sko"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7sko"]
+atlas = ExtResource("1_o7sko")
+region = Rect2(0, 0, 483, 544)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltv87"]
+atlas = ExtResource("1_o7sko")
+region = Rect2(483, 0, 483, 544)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30713"]
+atlas = ExtResource("1_o7sko")
+region = Rect2(966, 0, 483, 544)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfmgd"]
+atlas = ExtResource("1_o7sko")
+region = Rect2(1449, 0, 483, 544)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gwwyd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7sko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltv87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30713")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfmgd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qfhx3"]
+radius = 15.033297
+
+[node name="Node2D" type="Node2D" unique_id=158761940]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1965017041]
+collision_mask = 2
+script = ExtResource("1_ltv87")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1540587575]
+scale = Vector2(0.057971016, 0.05797104)
+sprite_frames = SubResource("SpriteFrames_gwwyd")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1092151285]
+shape = SubResource("CircleShape2D_qfhx3")

@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://ev176x4pyoq5"]
+
+[ext_resource type="Script" uid="uid://b062hjqgm5rb4" path="res://script_boletoAtirar.gd" id="1_3tgq2"]
+[ext_resource type="Texture2D" uid="uid://cmdv5cwsb1h8r" path="res://sprites/Inimigos/Inimigo Boleto/attack/attack-removebg-preview.png" id="1_8t1ly"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tgq2"]
+atlas = ExtResource("1_8t1ly")
+region = Rect2(176, 0, 176, 171)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qu44m"]
+atlas = ExtResource("1_8t1ly")
+region = Rect2(352, 0, 176, 171)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxk04"]
+atlas = ExtResource("1_8t1ly")
+region = Rect2(528, 0, 176, 171)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4ede"]
+atlas = ExtResource("1_8t1ly")
+region = Rect2(704, 0, 176, 171)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5nwi"]
+atlas = ExtResource("1_8t1ly")
+region = Rect2(880, 0, 176, 171)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vgln"]
+atlas = ExtResource("1_8t1ly")
+region = Rect2(1056, 0, 176, 171)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blmle"]
+atlas = ExtResource("1_8t1ly")
+region = Rect2(1232, 0, 176, 171)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_anbkv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tgq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qu44m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxk04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4ede")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5nwi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vgln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blmle")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_elxft"]
+radius = 39.051247
+
+[node name="Node2D" type="Node2D" unique_id=1836302691]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1708342137]
+collision_mask = 3
+script = ExtResource("1_3tgq2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=295434989]
+scale = Vector2(0.47953212, 0.47953212)
+sprite_frames = SubResource("SpriteFrames_anbkv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1536102810]
+shape = SubResource("CircleShape2D_elxft")
+
+[node name="Timer" type="Timer" parent="CharacterBody2D" unique_id=243499561]
+autostart = true
+
+[node name="Marker2D" type="Marker2D" parent="CharacterBody2D" unique_id=262208642]
+
+[connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="atirar"]

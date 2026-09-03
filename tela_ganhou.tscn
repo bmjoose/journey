@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://vrjsdwmbj4hf"]
+
+[ext_resource type="Script" uid="uid://bptqg3sfq0ltm" path="res://script_ganhou.gd" id="1_jwlgs"]
+[ext_resource type="Texture2D" uid="uid://bh2oqx2meqqih" path="res://sprites/Fases/Fases/Telas/telas/tela_final.jpeg" id="1_k5ipl"]
+[ext_resource type="Texture2D" uid="uid://bnwsf31vt5pn6" path="res://sprite/Fases/Fases/Telas/botoes/exit.png" id="3_6eo7h"]
+
+[node name="parabens" type="Node2D" unique_id=458619218]
+script = ExtResource("1_jwlgs")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2035310831]
+position = Vector2(551.9553, 256)
+scale = Vector2(0.7267303, 0.7329545)
+texture = ExtResource("1_k5ipl")
+
+[node name="Exit" type="Sprite2D" parent="." unique_id=227920840]
+position = Vector2(844.00006, 443.00003)
+scale = Vector2(0.39315334, 0.48717928)
+texture = ExtResource("3_6eo7h")
+
+[node name="Button" type="Button" parent="." unique_id=303179628]
+modulate = Color(1, 1, 1, 0)
+offset_left = 791.0
+offset_top = 414.0
+offset_right = 932.0
+offset_bottom = 464.0
+
+[connection signal="pressed" from="Button" to="." method="voltar_inicio"]

@@ -1,0 +1,476 @@
+[gd_scene format=3 uid="uid://bc2bub1iu7mun"]
+
+[ext_resource type="Script" uid="uid://dyunexgspgj6t" path="res://scrpit_personagem.gd" id="1_crqlb"]
+[ext_resource type="Texture2D" uid="uid://bq0rxel84x51k" path="res://sprite/Personagem/atacando livro/atacando1.png" id="2_vf5tu"]
+[ext_resource type="Texture2D" uid="uid://dnw6e57n6fu7p" path="res://sprite/Personagem/atacando livro/atacando2.png" id="3_4i8ql"]
+[ext_resource type="Texture2D" uid="uid://8h3istqfho0r" path="res://sprite/Personagem/atacando livro/atacando3.png" id="4_qpm0g"]
+[ext_resource type="Texture2D" uid="uid://duonfkdvxqxfu" path="res://sprite/Personagem/atacando livro/atacando4.png" id="5_5kbii"]
+[ext_resource type="Texture2D" uid="uid://dtrmi3ry6oluc" path="res://sprite/Personagem/correndo/correndo1.png" id="6_eo8cg"]
+[ext_resource type="Texture2D" uid="uid://gxr4ygob1ape" path="res://sprite/Personagem/atacando mochila/mochila1.png" id="6_mnv5p"]
+[ext_resource type="Texture2D" uid="uid://6k6kyspw1wrh" path="res://sprite/Personagem/atacando mochila/mochila2.png" id="7_ded3l"]
+[ext_resource type="Texture2D" uid="uid://c773ncvcsoikw" path="res://sprite/Personagem/correndo/correndo2.png" id="7_mnv5p"]
+[ext_resource type="Texture2D" uid="uid://b523aouskxmjl" path="res://sprite/Personagem/correndo/correndo3.png" id="8_ded3l"]
+[ext_resource type="Texture2D" uid="uid://drk57ggl6no7b" path="res://sprite/Personagem/atacando mochila/mochila3.png" id="8_fnu3a"]
+[ext_resource type="Texture2D" uid="uid://214i5tk8mn46" path="res://sprite/Personagem/correndo/correndo4.png" id="9_fnu3a"]
+[ext_resource type="Texture2D" uid="uid://b122s3cwxq2gh" path="res://sprite/Personagem/atacando mochila/mochila4.png" id="9_fu8wd"]
+[ext_resource type="Texture2D" uid="uid://cg5a1gdtmqd2q" path="res://sprite/Personagem/correndo/correndo5.png" id="10_fu8wd"]
+[ext_resource type="Texture2D" uid="uid://cmoa72llafma2" path="res://sprite/Personagem/atacando mochila/mochila5.png" id="10_mv1sb"]
+[ext_resource type="Texture2D" uid="uid://hrdswpuy1rfi" path="res://sprite/Personagem/correndo/correndo6.png" id="11_mv1sb"]
+[ext_resource type="Texture2D" uid="uid://2vjqaxwo1jjt" path="res://sprite/Personagem/idle/parado1.png" id="12_fvqja"]
+[ext_resource type="Texture2D" uid="uid://dxws6he6jkd6c" path="res://sprite/Personagem/idle/parado2.png" id="13_v57bu"]
+[ext_resource type="Texture2D" uid="uid://dfl3cnu0ycwl3" path="res://sprite/Personagem/defesa/defesa1.png" id="14_vfvlh"]
+[ext_resource type="Texture2D" uid="uid://uuwbugxeq4cu" path="res://sprite/Personagem/defesa/defesa2.png" id="15_i73at"]
+[ext_resource type="Texture2D" uid="uid://b43jxufg8uvux" path="res://sprite/Personagem/defesa/defesa3.png" id="16_7dhpd"]
+[ext_resource type="Texture2D" uid="uid://cltjqk3iqhjqd" path="res://sprite/Personagem/defesa/defesa4.png" id="17_gc5yp"]
+[ext_resource type="Texture2D" uid="uid://31cggpw0xqsm" path="res://sprite/Personagem/morrendo/morrendo1.png" id="18_2aume"]
+[ext_resource type="Texture2D" uid="uid://dceb3f7qwvpgu" path="res://sprite/Personagem/morrendo/morrendo2.png" id="19_l4a54"]
+[ext_resource type="Texture2D" uid="uid://cvtxmmq21yndu" path="res://sprite/Personagem/morrendo/morrendo3.png" id="20_q6lc0"]
+[ext_resource type="Texture2D" uid="uid://bqnteu8g5xfmr" path="res://sprite/Personagem/morrendo/morrendo4.png" id="21_1io1w"]
+[ext_resource type="Texture2D" uid="uid://d07lwyil80f3v" path="res://sprite/Personagem/morrendo/morrendo5.png" id="22_12go4"]
+[ext_resource type="Texture2D" uid="uid://6uf04bm4dcra" path="res://sprites/Personagem/pulando/pulando1.png" id="23_reuxd"]
+[ext_resource type="Texture2D" uid="uid://3b0mnm8238xr" path="res://sprites/Personagem/pulando/pulando2.png" id="24_kp1lc"]
+[ext_resource type="Texture2D" uid="uid://dcba4si8vwe2r" path="res://sprites/Personagem/pulando/pulando3.png" id="25_2f1eq"]
+[ext_resource type="PackedScene" uid="uid://d0v6nx7xfpqtb" path="res://cena_livro.tscn" id="26_vf5tu"]
+
+[sub_resource type="GDScript" id="GDScript_crqlb"]
+script/source = "extends Camera2D
+
+@export var fase_nodo: NodePath
+
+func _ready():
+	
+	if fase_nodo:
+		var fase = get_node(fase_nodo)
+		
+		if fase.has_method(\"get_used_rect\"):
+			var limites_da_fase = fase.get_used_rect()
+			var tamanho_do_tile = fase.tile_set.tile_size
+			
+			limit_left = limites_da_fase.position.x * tamanho_do_tile.x
+			limit_top = limites_da_fase.position.y * tamanho_do_tile.y
+			limit_right = limites_da_fase.end.x * tamanho_do_tile.x
+			limit_bottom = limites_da_fase.end.y * tamanho_do_tile.y
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ujei"]
+atlas = ExtResource("2_vf5tu")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_siqay"]
+atlas = ExtResource("3_4i8ql")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfv8d"]
+atlas = ExtResource("4_qpm0g")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56fos"]
+atlas = ExtResource("5_5kbii")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvqja"]
+atlas = ExtResource("6_mnv5p")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v57bu"]
+atlas = ExtResource("7_ded3l")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfvlh"]
+atlas = ExtResource("8_fnu3a")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i73at"]
+atlas = ExtResource("9_fu8wd")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dhpd"]
+atlas = ExtResource("10_mv1sb")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5vim"]
+atlas = ExtResource("6_eo8cg")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7drqq"]
+atlas = ExtResource("7_mnv5p")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5ul1"]
+atlas = ExtResource("8_ded3l")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o04oi"]
+atlas = ExtResource("9_fnu3a")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je12x"]
+atlas = ExtResource("10_fu8wd")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvpvo"]
+atlas = ExtResource("11_mv1sb")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxbxb"]
+atlas = ExtResource("12_fvqja")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6n55x"]
+atlas = ExtResource("13_v57bu")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12t6b"]
+atlas = ExtResource("14_vfvlh")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ot4lm"]
+atlas = ExtResource("15_i73at")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7cxg"]
+atlas = ExtResource("16_7dhpd")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4krw"]
+atlas = ExtResource("17_gc5yp")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ra4a"]
+atlas = ExtResource("18_2aume")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bua5s"]
+atlas = ExtResource("19_l4a54")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lb1s"]
+atlas = ExtResource("20_q6lc0")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0pi1"]
+atlas = ExtResource("21_1io1w")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ta3k3"]
+atlas = ExtResource("22_12go4")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0gxx"]
+atlas = ExtResource("23_reuxd")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdf2a"]
+atlas = ExtResource("24_kp1lc")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wohj"]
+atlas = ExtResource("25_2f1eq")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_umbpf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ujei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_siqay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfv8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56fos")
+}],
+"loop": false,
+"name": &"atacando_livro",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvqja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v57bu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfvlh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i73at")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dhpd")
+}],
+"loop": false,
+"name": &"atacando_mochila",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5vim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7drqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5ul1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o04oi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je12x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvpvo")
+}],
+"loop": true,
+"name": &"correndo",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxbxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6n55x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.7
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12t6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ot4lm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7cxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4krw")
+}],
+"loop": false,
+"name": &"defesa",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ra4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bua5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lb1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0pi1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ta3k3")
+}],
+"loop": false,
+"name": &"morrendo",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0gxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdf2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wohj")
+}],
+"loop": false,
+"name": &"pulando",
+"speed": 2.0
+}]
+
+[sub_resource type="Animation" id="Animation_crqlb"]
+resource_name = "atacando_livro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("personagem/personagem:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"atacando_livro"]
+}
+
+[sub_resource type="Animation" id="Animation_vf5tu"]
+resource_name = "atacando_mochila"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("personagem/personagem:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"atacando_mochila"]
+}
+
+[sub_resource type="Animation" id="Animation_4i8ql"]
+resource_name = "correndo"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("personagem/personagem:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"correndo"]
+}
+
+[sub_resource type="Animation" id="Animation_qpm0g"]
+resource_name = "defesa"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("personagem/personagem:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"defesa"]
+}
+
+[sub_resource type="Animation" id="Animation_5kbii"]
+resource_name = "morrendo"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("personagem/personagem:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"morrendo"]
+}
+
+[sub_resource type="Animation" id="Animation_eo8cg"]
+resource_name = "parado"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("personagem/personagem:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+
+[sub_resource type="Animation" id="Animation_mnv5p"]
+resource_name = "pulando"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("personagem/personagem:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"pulando"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ded3l"]
+_data = {
+&"atacando_livro": SubResource("Animation_crqlb"),
+&"atacando_mochila": SubResource("Animation_vf5tu"),
+&"correndo": SubResource("Animation_4i8ql"),
+&"defesa": SubResource("Animation_qpm0g"),
+&"morrendo": SubResource("Animation_5kbii"),
+&"parado": SubResource("Animation_eo8cg"),
+&"pulando": SubResource("Animation_mnv5p")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_koof8"]
+size = Vector2(26, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vf5tu"]
+size = Vector2(20, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mnv5p"]
+size = Vector2(26, 35)
+
+[node name="personagem" type="Node2D" unique_id=2012782429]
+
+[node name="personagem" type="CharacterBody2D" parent="." unique_id=1662973421 groups=["player"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_crqlb")
+
+[node name="Camera2D" type="Camera2D" parent="personagem" unique_id=991946548]
+zoom = Vector2(1.2, 1.2)
+limit_left = 0
+limit_top = 0
+limit_right = 1100
+limit_bottom = 513
+script = SubResource("GDScript_crqlb")
+
+[node name="personagem" type="AnimatedSprite2D" parent="personagem" unique_id=1190570433]
+position = Vector2(3.9999998, -0.6940068)
+scale = Vector2(0.13281249, 0.14995657)
+sprite_frames = SubResource("SpriteFrames_umbpf")
+animation = &"defesa"
+offset = Vector2(0, 10)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="personagem" unique_id=1036688796]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_ded3l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="personagem" unique_id=1463891148]
+position = Vector2(3, -0.5)
+shape = SubResource("RectangleShape2D_koof8")
+
+[node name="Marker2D" type="Marker2D" parent="personagem" unique_id=795107148]
+
+[node name="Area2D" type="Area2D" parent="personagem" unique_id=555114497]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="personagem/Area2D" unique_id=1887068378]
+position = Vector2(27, 0)
+shape = SubResource("RectangleShape2D_vf5tu")
+debug_color = Color(1.6511687, 1.6857474, 1.6857474, 0.2509804)
+
+[node name="livro" parent="personagem" unique_id=1658370259 instance=ExtResource("26_vf5tu")]
+visible = false
+position = Vector2(50, 0)
+
+[node name="hitbox" type="Area2D" parent="personagem" unique_id=1135944289]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="personagem/hitbox" unique_id=48656916]
+position = Vector2(3, -0.5)
+shape = SubResource("RectangleShape2D_mnv5p")
+
+[connection signal="body_entered" from="personagem/Area2D" to="personagem" method="dano_no_inimigo"]
+[connection signal="area_entered" from="personagem/hitbox" to="personagem" method="dano"]
+[connection signal="body_entered" from="personagem/hitbox" to="personagem" method="tirar_vida"]

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resilient Journey - O Jogo da Vida Universitária</title>
+    <style>
+        /* Configurações Gerais e Cores */
+        :root {
+            --bg-color: #121214;
+            --card-bg: #1e1e24;
+            --primary-color: #ff6b6b;
+            --secondary-color: #4ecdc4;
+            --text-color: #ecc94b;
+            --text-light: #f7fafc;
+            --accent-purple: #9b5de5;
+            --zica-purple: #b070ff; /* Roxo personalizado pro brilho do José */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho / Hero Section */
+        header {
+            background: linear-gradient(135deg, #1e1e24 0%, #0f0f13 100%);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--primary-color);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Seção Sobre o Jogo */
+        .about-section {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        .about-section h2 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Área da Personagem Principal */
+        .character-showcase {
+            display: flex;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .char-image-container {
+            flex: 1;
+            min-width: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #2a2a35;
+            border-radius: 8px;
+            padding: 10px;
+            overflow: hidden;
+        }
+
+        .sprite-crop-holly {
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .char-details {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .char-details h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* Seção de Inimigos (Destaque) */
+        .enemies-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--text-color);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .enemies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .enemy-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid #2d2d38;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .enemy-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .enemy-img-container {
+            background-color: #2a2a35;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .enemy-img-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .enemy-info {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .enemy-info h4 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .badge-cafe { background-color: #8b5a2b; color: #fff; }
+        .badge-zombie { background-color: #4a7c59; color: #fff; }
+        .badge-boleto { background-color: #ca3e47; color: #fff; }
+
+        .educational-note {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #3d3d4e;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            font-style: italic;
+        }
+
+        /* Rodapé e Redes Sociais dos Desenvolvedores */
+        footer {
+            background-color: #0f0f13;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 2px solid #2d2d38;
+        }
+
+        footer p {
+            margin-bottom: 20px;
+            color: #718096;
+            font-size: 1.1rem;
+        }
+
+        .social-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* Botão Base do Instagram */
+        .instagram-btn {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s, opacity 0.3s;
+        }
+
+        .instagram-btn:hover {
+            opacity: 0.95;
+            transform: scale(1.05);
+        }
+
+        /* O Destaque Zica Roxo do José */
+        .btn-jose {
+            background: linear-gradient(45deg, #2e0854, #180b30); /* Fundo dark roxo irado */
+            border: 2px solid var(--zica-purple);
+            box-shadow: 0 0 15px rgba(155, 93, 229, 0.5); /* Neon roxo */
+            font-size: 1.1rem;
+            padding: 12px 30px;
+        }
+
+        .btn-jose:hover {
+            box-shadow: 0 0 25px rgba(155, 93, 229, 0.9);
+            transform: scale(1.1);
+            background: linear-gradient(45deg, #3d0c6e, #241147);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+            .character-showcase { flex-direction: column; text-align: center; }
+            .social-container { flex-direction: column; align-items: center; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Resilient Journey</h1>
+        <p>Uma jornada diária entre o interior, a capital e o sonho do diploma universitário.</p>
+    </header>
+
+    <div class="container">
+        
+        <section class="about-section">
+            <h2>Sobre o Jogo</h2>
+            <p><strong>Resilient Journey</strong> é um jogo educativo desenvolvido por estudantes universitários para retratar, de forma lúdica e crítica, os desafios reais enfrentados por milhares de alunos que viajam longas distâncias todos os dias. O objetivo é gerenciar recursos físicos, mentais e financeiros para conseguir chegar à universidade e concluir as fases.</p>
+        </section>
+
+        <section class="character-showcase">
+            <div class="char-image-container">
+                <img src="img/holly" alt="Holly Sprite" class="sprite-crop-holly">
+            </div>
+            <div class="char-details">
+                <h3>Conheça a Holly</h3>
+                <p>Nossa protagonista é uma estudante resiliente que mora no interior. Todos os dias, ela encara uma maratona de transporte público, prazos acadêmicos e cansaço físico. Sua missão é atravessar as barreiras diárias para garantir seu futuro na capital.</p>
+            </div>
+        </section>
+
+        <h2 class="enemies-title">Os Desafios (Inimigos)</h2>
+        
+        <section class="enemies-grid">
+            
+            <div class="enemy-card">
+                <div class="enemy-img-container">
+                    <img src="img/cafe" alt="Inimigo Café">
+                </div>
+                <div class="enemy-info">
+                    <h4>Café <span class="badge badge-cafe">Vício Compulsivo</span></h4>
+                    <p>Disfarçado de aliado para as noites em claro, o café em excesso se torna um vilão, mascarando a exaustão e gerando dependência no dia a dia da protagonista.</p>
+                    <div class="educational-note">
+                        💡 Foco Educativo: Alerta sobre o consumo exagerado de estimulantes e seus efeitos colaterais na saúde a longo prazo.
+                    </div>
+                </div>
+            </div>
+
+            <div class="enemy-card">
+                <div class="enemy-img-container">
+                    <img src="img/zumbi" alt="Inimigo Privação de Sono">
+                </div>
+                <div class="enemy-info">
+                    <h4>Zumbi <span class="badge badge-zombie">Privação de Sono</span></h4>
+                    <p>O reflexo direto das noites perdidas estudando e das madrugadas no transporte. Eles tentam atrasar a Holly tirando sua energia e foco.</p>
+                    <div class="educational-note">
+                        💡 Foco Educativo: Mostra a importância da higiene do sono e como a mente cansada rende menos nos estudos.
+                    </div>
+                </div>
+            </div>
+
+            <div class="enemy-card">
+                <div class="enemy-img-container">
+                    <img src="img/boleto" alt="Inimigo Boleto">
+                </div>
+                <div class="enemy-info">
+                    <h4>O Boleto <span class="badge badge-boleto">Gestão Financeira</span></h4>
+                    <p>Monstros implacáveis que surgem todo mês. Exigem da Holly inteligência e planejamento financeiro para que as contas não barrem sua chegada à faculdade.</p>
+                    <div class="educational-note">
+                        💡 Foco Educativo: Introduz conceitos básicos de educação e organização financeira para jovens adultos.
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+    <footer>
+        <p>Desenvolvido com 🎮 por Universitários para o Futuro da Educação.</p>
+        <div class="social-container">
+            <a href="https://www.instagram.com/bm.joose/" target="_blank" class="instagram-btn btn-jose">
+                José
+            </a>
+            <a href="https://www.instagram.com/sullyyme_/" target="_blank" class="instagram-btn">
+                Selenne
+            </a>
+            <a href="https://www.instagram.com/giixh__?igsh=NmRma3E4MnZrOHl1" target="_blank" class="instagram-btn">
+                Giovana
+            </a>
+        </div>
+    </footer>
+
+</body>
+</html>

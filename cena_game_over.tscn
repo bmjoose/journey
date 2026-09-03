@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cp0tm7rda3a0k"]
+
+[ext_resource type="Script" uid="uid://yyf7f3sh0oyt" path="res://script_game_over.gd" id="1_05lep"]
+[ext_resource type="Texture2D" uid="uid://d3ofjxtm7c321" path="res://sprite/Fases/Fases/Telas/telas/tela_gameover.png" id="1_s1hed"]
+[ext_resource type="Texture2D" uid="uid://bktq6f7mfp42p" path="res://sprite/Fases/Fases/Telas/botoes/tryagain.png" id="2_niwnu"]
+[ext_resource type="Texture2D" uid="uid://bnwsf31vt5pn6" path="res://sprite/Fases/Fases/Telas/botoes/exit.png" id="3_05lep"]
+
+[node name="Node2D" type="Node2D" unique_id=1453393487]
+script = ExtResource("1_05lep")
+
+[node name="spriteTela" type="Sprite2D" parent="." unique_id=1848083034]
+position = Vector2(549.60266, 258.49997)
+scale = Vector2(0.60174, 0.59929913)
+texture = ExtResource("1_s1hed")
+
+[node name="ButtonTryAgain" type="Button" parent="spriteTela" unique_id=473588592]
+modulate = Color(1, 1, 1, 0)
+offset_left = -153.89148
+offset_top = 59.23593
+offset_right = 68.10852
+offset_bottom = 90.23593
+text = "aa"
+
+[node name="ButtonExit" type="Button" parent="spriteTela" unique_id=1981009730]
+modulate = Color(1, 1, 1, 0)
+offset_left = -79.108376
+offset_top = 152.6784
+offset_right = 124.75393
+offset_bottom = 203.08014
+
+[node name="SpriteTryAgain" type="Sprite2D" parent="." unique_id=59779824]
+position = Vector2(563, 309)
+scale = Vector2(0.20077229, 0.20077223)
+texture = ExtResource("2_niwnu")
+
+[node name="SpriteExit" type="Sprite2D" parent="." unique_id=2104227799]
+position = Vector2(546.00006, 368)
+scale = Vector2(0.28205124, 0.2820513)
+texture = ExtResource("3_05lep")
+
+[connection signal="pressed" from="spriteTela/ButtonTryAgain" to="." method="continuar_jogo"]
+[connection signal="pressed" from="spriteTela/ButtonExit" to="." method="ir_para_inicio"]

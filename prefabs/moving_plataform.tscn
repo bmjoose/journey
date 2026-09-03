@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cb26yihirjxbi"]
+
+[ext_resource type="Texture2D" uid="uid://dupyx2ln084lq" path="res://sprite/Fases/Fases/Cenarios/Misc. universal tiles/Blocks (16 x 16).png" id="1_hdtt3"]
+[ext_resource type="Script" uid="uid://bao6u8altucye" path="res://prefabs/moving_plataform.gd" id="1_kqqyq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqqyq"]
+size = Vector2(52, 16)
+
+[node name="moving_plataform" type="Node2D" unique_id=876575277]
+script = ExtResource("1_kqqyq")
+
+[node name="platform" type="AnimatableBody2D" parent="." unique_id=1793030928]
+collision_mask = 0
+
+[node name="sprite_platform" type="Sprite2D" parent="platform" unique_id=203223809]
+position = Vector2(10, 0)
+scale = Vector2(1.625, 1)
+texture = ExtResource("1_hdtt3")
+region_enabled = true
+region_rect = Rect2(96, 64, 32, 16)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform" unique_id=29395218]
+light_mask = 3
+position = Vector2(10, 0)
+shape = SubResource("RectangleShape2D_kqqyq")
+one_way_collision = true

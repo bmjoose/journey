@@ -1,0 +1,215 @@
+[gd_scene format=3 uid="uid://c5j1b2wc8cev8"]
+
+[ext_resource type="Texture2D" uid="uid://daslxgtwc8hd4" path="res://sprites/Inimigos/Inimigo Boleto/walk/boleto sem fundo.png" id="1_57byx"]
+[ext_resource type="Script" uid="uid://cbkbydqk1s2i" path="res://script_boleto.gd" id="1_gewep"]
+[ext_resource type="Texture2D" uid="uid://dglek8vxsslah" path="res://sprites/Inimigos/Inimigo Boleto/inimigo morto/morrendo-removebg-preview.png" id="1_rx0ky"]
+[ext_resource type="Texture2D" uid="uid://cmdv5cwsb1h8r" path="res://sprites/Inimigos/Inimigo Boleto/attack/attack-removebg-preview.png" id="3_wmdtu"]
+[ext_resource type="PackedScene" uid="uid://kjq4eot5ot6p" path="res://cena_moeda_boleto.tscn" id="5_uom2c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mbuq"]
+atlas = ExtResource("1_57byx")
+region = Rect2(0, 0, 153, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2hf2"]
+atlas = ExtResource("1_57byx")
+region = Rect2(153, 0, 153, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myxdr"]
+atlas = ExtResource("1_57byx")
+region = Rect2(306, 0, 153, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wunkn"]
+atlas = ExtResource("1_57byx")
+region = Rect2(459, 0, 153, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d008w"]
+atlas = ExtResource("1_57byx")
+region = Rect2(612, 0, 153, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsr4k"]
+atlas = ExtResource("1_57byx")
+region = Rect2(765, 0, 153, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_br3lf"]
+atlas = ExtResource("3_wmdtu")
+region = Rect2(0, 0, 176, 171)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sfhf"]
+atlas = ExtResource("3_wmdtu")
+region = Rect2(176, 0, 176, 171)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kir0c"]
+atlas = ExtResource("3_wmdtu")
+region = Rect2(352, 0, 176, 171)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xhs3"]
+atlas = ExtResource("3_wmdtu")
+region = Rect2(528, 0, 176, 171)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5q27w"]
+atlas = ExtResource("3_wmdtu")
+region = Rect2(704, 0, 176, 171)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osn20"]
+atlas = ExtResource("3_wmdtu")
+region = Rect2(880, 0, 176, 171)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tevd"]
+atlas = ExtResource("3_wmdtu")
+region = Rect2(1056, 0, 176, 171)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oeiuv"]
+atlas = ExtResource("3_wmdtu")
+region = Rect2(1232, 0, 176, 171)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57byx"]
+atlas = ExtResource("1_rx0ky")
+region = Rect2(0, 0, 176, 169)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gewep"]
+atlas = ExtResource("1_rx0ky")
+region = Rect2(176, 0, 176, 169)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmdtu"]
+atlas = ExtResource("1_rx0ky")
+region = Rect2(352, 0, 176, 169)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uom2c"]
+atlas = ExtResource("1_rx0ky")
+region = Rect2(528, 0, 176, 169)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6aa57"]
+atlas = ExtResource("1_rx0ky")
+region = Rect2(704, 0, 176, 169)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kvcrs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mbuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2hf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myxdr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wunkn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d008w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsr4k")
+}],
+"loop": true,
+"name": &"andando",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_br3lf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sfhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kir0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xhs3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5q27w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osn20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tevd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oeiuv")
+}],
+"loop": true,
+"name": &"ataque",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57byx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gewep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmdtu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uom2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6aa57")
+}],
+"loop": false,
+"name": &"morrendo",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_br3lf"]
+size = Vector2(40, 73)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57byx"]
+size = Vector2(44, 64)
+
+[node name="Node2D" type="Node2D" unique_id=1488341848]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=635436644]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_gewep")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1732311498]
+scale = Vector2(0.45751637, 0.45751637)
+sprite_frames = SubResource("SpriteFrames_kvcrs")
+animation = &"andando"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=2060128571]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=7341957]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_br3lf")
+
+[node name="wallDetector" type="RayCast2D" parent="CharacterBody2D" unique_id=833258767]
+position = Vector2(11, 21)
+target_position = Vector2(38, -1)
+
+[node name="groundDetector" type="RayCast2D" parent="CharacterBody2D" unique_id=149326360]
+position = Vector2(30, 1)
+target_position = Vector2(0, 54)
+
+[node name="PlayerDetector" type="RayCast2D" parent="CharacterBody2D" unique_id=124206261]
+position = Vector2(7, 38)
+target_position = Vector2(-162, -1)
+collision_mask = 2
+
+[node name="hitbox" type="Area2D" parent="CharacterBody2D" unique_id=1519876032]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/hitbox" unique_id=173610051]
+position = Vector2(4, 2)
+shape = SubResource("RectangleShape2D_57byx")
+
+[node name="moedaBoleto" parent="CharacterBody2D" unique_id=1646554706 instance=ExtResource("5_uom2c")]
+visible = false
+scale = Vector2(1.1241829, 1.1241828)
+
+[connection signal="area_entered" from="CharacterBody2D/hitbox" to="CharacterBody2D" method="sofrer_dano"]
+[connection signal="body_entered" from="CharacterBody2D/hitbox" to="CharacterBody2D" method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="CharacterBody2D/hitbox" to="CharacterBody2D" method="tirar_vida"]

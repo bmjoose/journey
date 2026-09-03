@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://b03tvoa8bm3de"]
+
+[ext_resource type="Script" uid="uid://ce00b33f5neg5" path="res://script_vida.gd" id="1_j3p4a"]
+[ext_resource type="Texture2D" uid="uid://b863hjifnkt64" path="res://sprite/Elementos/Imagens/Itens e elementos/Mini FX, Items & UI/Itens/Heart_Spin (16 x 16).png" id="2_hw88q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6cwy"]
+atlas = ExtResource("2_hw88q")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_re1hq"]
+atlas = ExtResource("2_hw88q")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_driaw"]
+atlas = ExtResource("2_hw88q")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svbxl"]
+atlas = ExtResource("2_hw88q")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8kkvn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6cwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_re1hq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_driaw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svbxl")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hw88q"]
+radius = 10.049875
+
+[node name="Vida" type="Area2D" unique_id=674161546]
+collision_mask = 2
+script = ExtResource("1_j3p4a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1734290597]
+position = Vector2(1, -7)
+scale = Vector2(1.8750004, 1.8750005)
+sprite_frames = SubResource("SpriteFrames_8kkvn")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=80415182]
+shape = SubResource("CircleShape2D_hw88q")
+
+[connection signal="body_entered" from="." to="." method="coletar_vida"]

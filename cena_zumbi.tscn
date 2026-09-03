@@ -1,0 +1,190 @@
+[gd_scene format=3 uid="uid://civgi2exm3x6h"]
+
+[ext_resource type="Script" uid="uid://dxclybdio3xp7" path="res://script_zumbi.gd" id="1_i6j61"]
+[ext_resource type="Texture2D" uid="uid://d38fu70cm66qx" path="res://sprites/Inimigos/Inimigo Zumbi/walk/WhatsApp_Image_2026-04-30_at_16.50.48__1_-removebg-preview.png" id="1_yse6p"]
+[ext_resource type="Texture2D" uid="uid://ca1e8nbnh6qip" path="res://sprites/Inimigos/Inimigo Zumbi/inimigo morto/Gemini_Generated_Image_feij3mfeij3mfeij-removebg-preview.png" id="2_i6j61"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jacd0"]
+atlas = ExtResource("1_yse6p")
+region = Rect2(0, 23, 110, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdl3u"]
+atlas = ExtResource("1_yse6p")
+region = Rect2(111, 23, 110, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nipdi"]
+atlas = ExtResource("1_yse6p")
+region = Rect2(222, 23, 110, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nytuq"]
+atlas = ExtResource("1_yse6p")
+region = Rect2(333, 23, 110, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twqcd"]
+atlas = ExtResource("1_yse6p")
+region = Rect2(444, 23, 110, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xbyf"]
+atlas = ExtResource("1_yse6p")
+region = Rect2(555, 23, 110, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_361j4"]
+atlas = ExtResource("2_i6j61")
+region = Rect2(0, 0, 174, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7rtd"]
+atlas = ExtResource("2_i6j61")
+region = Rect2(174, 0, 174, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76c0c"]
+atlas = ExtResource("2_i6j61")
+region = Rect2(348, 0, 174, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_454fd"]
+atlas = ExtResource("2_i6j61")
+region = Rect2(522, 0, 174, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v5gh"]
+atlas = ExtResource("2_i6j61")
+region = Rect2(696, 0, 174, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1ceb"]
+atlas = ExtResource("2_i6j61")
+region = Rect2(870, 0, 174, 152)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5hywi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jacd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdl3u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nipdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nytuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twqcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xbyf")
+}],
+"loop": true,
+"name": &"andando",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_361j4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7rtd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76c0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_454fd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v5gh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1ceb")
+}],
+"loop": false,
+"name": &"morrendo",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_jacd0"]
+resource_name = "andando"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"andando"]
+}
+
+[sub_resource type="Animation" id="Animation_wdl3u"]
+resource_name = "morrendo"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"morrendo"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nipdi"]
+_data = {
+&"andando": SubResource("Animation_jacd0"),
+&"morrendo": SubResource("Animation_wdl3u")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pujev"]
+size = Vector2(26, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yse6p"]
+size = Vector2(26, 35)
+
+[node name="zumbi" type="Node2D" unique_id=2043395454]
+
+[node name="zumbi" type="CharacterBody2D" parent="." unique_id=336895786]
+collision_layer = 4
+script = ExtResource("1_i6j61")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="zumbi" unique_id=1933634809]
+scale = Vector2(0.3090909, 0.30909088)
+sprite_frames = SubResource("SpriteFrames_5hywi")
+animation = &"andando"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="zumbi" unique_id=1646680250]
+libraries/ = SubResource("AnimationLibrary_nipdi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zumbi" unique_id=1800291877]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_pujev")
+
+[node name="wallDetector" type="RayCast2D" parent="zumbi" unique_id=1873854829]
+position = Vector2(1, 13)
+target_position = Vector2(29, 0)
+
+[node name="groundDetector" type="RayCast2D" parent="zumbi" unique_id=778930160]
+position = Vector2(14, 1)
+target_position = Vector2(0, 20)
+
+[node name="PlayerDetector" type="RayCast2D" parent="zumbi" unique_id=47279323]
+target_position = Vector2(84, 0)
+
+[node name="hitbox" type="Area2D" parent="zumbi" unique_id=1056138768]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zumbi/hitbox" unique_id=1927094035]
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_yse6p")
+
+[connection signal="area_entered" from="zumbi/hitbox" to="zumbi" method="sofrer_dano"]
+[connection signal="body_entered" from="zumbi/hitbox" to="zumbi" method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="zumbi/hitbox" to="zumbi" method="tirar_vida"]

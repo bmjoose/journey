@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b0o30vtqlal6o"]
+
+[ext_resource type="Script" uid="uid://dquynb608em4y" path="res://script_passar_fase.gd" id="1_a0ek3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkq2a"]
+size = Vector2(20, 124)
+
+[node name="Node2D" type="Node2D" unique_id=116269428]
+
+[node name="passarDeFase" type="Area2D" parent="." unique_id=363835625]
+collision_mask = 2
+script = ExtResource("1_a0ek3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="passarDeFase" unique_id=1243348011]
+position = Vector2(0, -52)
+shape = SubResource("RectangleShape2D_rkq2a")
+
+[connection signal="body_entered" from="passarDeFase" to="passarDeFase" method="passar_de_fase"]
+[connection signal="body_entered" from="passarDeFase" to="passarDeFase" method="_on_body_entered"]

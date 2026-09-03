@@ -1,0 +1,23 @@
+[gd_resource type="Theme" format=3 uid="uid://jk7grin5tqt"]
+
+[ext_resource type="FontFile" uid="uid://cupoo6jffh5ls" path="res://sprite/Elementos/Fontes/at01.ttf" id="1_5dapd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hdmo1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nwcfo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_05uyy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p81d2"]
+
+[resource]
+Button/colors/font_focus_color = Color(1, 1, 0, 1)
+Button/colors/font_hover_color = Color(1, 1, 0, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 0, 1)
+Button/colors/font_pressed_color = Color(1, 0.4117647, 0, 1)
+Button/font_sizes/font_size = 45
+Button/fonts/font = ExtResource("1_5dapd")
+Button/styles/focus = SubResource("StyleBoxEmpty_hdmo1")
+Button/styles/hover = SubResource("StyleBoxEmpty_nwcfo")
+Button/styles/normal = SubResource("StyleBoxEmpty_05uyy")
+Button/styles/pressed = SubResource("StyleBoxEmpty_p81d2")
