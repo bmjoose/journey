@@ -1,4 +1,3 @@
-[aa.md](https://github.com/user-attachments/files/31809401/aa.md)
 # 🎓 Resilient Journey
 
 > **Projeto Prático em Sistemas / Sistemas Interativos**  
